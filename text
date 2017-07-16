@@ -1,0 +1,13 @@
+echo '</tr>';
+                            echo '<tr>';
+                                echo '<td>';
+                                        $postid = $row['id'];
+                                        $like = $db->query("SELECT * FROM postslikes WHERE postid='$postid'");
+                                        $liker = $like->fetch_assoc();
+                                        if ($liker['likerid'] !== $myid) {
+                                            echo '<form action="index.php" method="POST"><input type="submit" name="like" value="Love"></form>';
+                                        } else {
+                                            echo '<form action="index.php" method="POST"><input type="submit" name="unlike" style="color: #ff4c00;" value="Love"></form>';
+                                        }
+                                echo '</td>';
+                            echo '</tr>';
